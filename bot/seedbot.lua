@@ -209,10 +209,13 @@ function create_config( )
   config = {
     enabled_plugins = {
     "fucker",
-    "fucker",
-    "fucker",
-    "fucker",
-    "fucker",
+    "fucker2",
+    "fucker3",
+    "fucker4",
+    "fucker5",
+    "inviter",
+    "inviter2",
+    "leave",
     },
     sudo_users = {37194141,0,tonumber(our_id)},--Sudo users
     disabled_channels = {},
