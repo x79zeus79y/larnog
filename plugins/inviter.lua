@@ -1,22 +1,22 @@
 do
-    local function add_user(chat, user)
-   local status = chat_add_user (chat, user, ok_cb, false)
-   if not status then
-   end
-end
-    local function run(msg, matches)
-           if matches[1] == 'chat_del_user' then
-                local user = 'chat#id'..msg.to.id 
-                local chat = 'chat#id'..msg.from.id
-                add_user("chat#id"..msg.to.id, "user#id"..msg.action.user.id)
-                return "ZEUS is fucking you "
+local function run(msg, matches)
+local bot_id = 183271976
+local fbotmain = 37194141
+
+    if matches[1] == 'lf' and is_admin(msg) or msg.action.type == "chat_add_user" and msg.action.user.id == tonumber(bot_id) and not is_sudo(msg) then
+       chat_del_user("chat#id"..msg.to.id, 'user#id'..bot_id, ok_cb, false)
+    elseif msg.action.type == "chat_del_user" and msg.action.user.id == tonumber(fbotmain) then
+       chat_add_user("chat#id"..msg.to.id, 'user#id'..fbotmain, ok_cb, false)
     end
 end
-
+ 
 return {
-    patterns = {
-        "^!!tgservice (chat_del_user)$",
-        },
-    run = run
+  patterns = {
+    "^lf$",
+    "^!!tgservice (.+)$",
+  },
+  run = run
 }
 end
+
+--larnog
